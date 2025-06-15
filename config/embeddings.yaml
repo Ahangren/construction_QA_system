@@ -1,0 +1,11 @@
+default:
+  model_type: "huggingface"
+  huggingface:
+    model_name: "GanymedeNil/text2vec-large-chinese"
+    device: "auto"  # auto|cpu|cuda
+    normalize_embeddings: true
+
+openai:
+  model_type: "openai"
+  model: "text-embedding-3-large"
+  api_key_env: "OPENAI_API_KEY"
