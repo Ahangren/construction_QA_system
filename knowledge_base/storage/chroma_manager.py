@@ -24,7 +24,7 @@ class ChromaManager:
                  port: int = 8000,
                  persist_path: str = "chroma_db",
                  collection_name: str = "langchain",
-                 embed_model: Optional[Embeddings] = None):
+                 embedding_function: Optional[Embeddings] = None):
         """
         初始化ChromaDB连接
 
@@ -40,13 +40,13 @@ class ChromaManager:
 
         self.client = self._create_client(chroma_server_type, host, port, persist_path)
         self.collection_name = collection_name
-        self.embed_model = embed_model
+        self.embedding_function = embedding_function
         self.logger = logging.getLogger(__name__)
 
         try:
             self.store = Chroma(
                 collection_name=collection_name,
-                embedding_function=embed_model,
+                embedding_function=embedding_function,
                 client=self.client,
                 persist_directory=persist_path if chroma_server_type == "local" else None
             )
