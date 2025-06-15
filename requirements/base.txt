@@ -1,3 +1,5 @@
 langchain-community>=0.0.28
 python-dotenv>=1.0.0
 dashscope>=1.14.0
+chromadb>=0.4.15
+langchain-chroma>=0.0.4
